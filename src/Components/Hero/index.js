@@ -1,5 +1,6 @@
 import React from "react";
 import { NavBar } from "../NavBar";
+import SideBar from "../SideBar";
 import {
   HeroContainer,
   HeroBtn,
@@ -9,9 +10,14 @@ import {
   HeroP,
 } from "./heroElements";
 export const Hero = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
     <HeroContainer>
-      <NavBar />
+      <NavBar toggle={toggle} />
+      <SideBar isOpen={isOpen} toggle={toggle} />
       <HeroContent>
         <HeroItems>
           <HeroH1>Greates Pizza Ever</HeroH1>
